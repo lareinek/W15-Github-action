@@ -26,7 +26,7 @@ jobs:
     build_job:
         needs: 
             - setup_job
-        runs-on: windows-latest
+        runs-on: ubuntu-latest
         steps:
             - name: display hello
               run: echo hello
