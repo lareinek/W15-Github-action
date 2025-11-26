@@ -19,9 +19,15 @@ jobs:
             - name: create file
               run: |
                 touch github-action.txt
+                echo from first job > github-action.txt
                 ls -la
                 echo hello word
                 cat README.md
+            - name: upload my artifact
+              uses: actions/upload-artifact@v4
+              with: 
+                 name: my-file
+                 path: github-action.txt
 
     build_job:
         needs: 
@@ -30,6 +36,10 @@ jobs:
         steps:
             - name: display hello
               run: echo hello
+            - name: upload my artifact
+              uses: actions/download-artifact@v4
+              with:
+                path: github-action.txt
             - name: Display github-action.txt
               run: cat github-action.txt
 
