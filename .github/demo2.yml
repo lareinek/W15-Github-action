@@ -1,0 +1,12 @@
+name : Demo 2 pipeline
+
+on: 
+    push:
+        branches: [main]
+          
+jobs: 
+    build:
+      runs-on : ubuntu-latest
+      steps:
+        - run: uptime
+        - run: whoami
