@@ -36,7 +36,7 @@ jobs:
         steps:
             - name: display hello
               run: echo hello
-            - name: upload my artifact
+            - name: download my artifact
               uses: actions/download-artifact@v4
               with:
                 name: my-file
